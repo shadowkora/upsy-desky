@@ -32,11 +32,12 @@ substitutions:
   target_desk_height_name: "Target Desk Height"
 
   # Standing Desk Component Config
-  standing_desk_uart_rx_pin: "17"
-  standing_desk_up_pin: "21"
-  standing_desk_down_pin: "22"
-  standing_desk_min_height: "25.2"
-  standing_desk_max_height: "50.8"
+  standing_desk_uart_rx_pin: "17"   # RJ45 Pin 2 = GPIO17 (D-RX)
+  standing_desk_up_pin: "21"          # RJ45 Pin 7 = GPIO21
+  standing_desk_down_pin: "22"        # RJ45 Pin 8 = GPIO22
+  standing_desk_key_pin: "16"         # RJ45 Pin 4 = GPIO16 (KEY-1)
+  standing_desk_min_height: "62"
+  standing_desk_max_height: "128"
 
   # Presets Addon Config
   button_bit1_pin: "21"
