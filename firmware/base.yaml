@@ -12,7 +12,7 @@ esphome:
           data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]
   project:
     name: tj_horner.upsy_desky
-    version: "4.0.2"
+    version: "4.0.4"
 
 uart:
   id: handset_tx
