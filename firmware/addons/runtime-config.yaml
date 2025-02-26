@@ -23,8 +23,8 @@ button:
     icon: "mdi:cog-refresh"
     on_press:
       - uart.write:
-          id: handset_tx
-          data: [ 0x0 ]
+          id: handset_uart
+          data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]
       - standing_desk_height.detect_decoder: desk_height
 
 number:
