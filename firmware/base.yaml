@@ -15,7 +15,7 @@ esphome:
 
 uart:
   id: handset_uart
-  tx_pin: 18
+  tx_pin: 18 
   rx_pin: 17
   baud_rate: 9600
   stop_bits: 1
@@ -44,7 +44,7 @@ substitutions:
   default_height_units: cm
 
 packages:
-  standing_desk: github://tjhorner/esphome-standing-desk/configs/template.yaml
+  standing_desk: github://shadowkora/esphome-standing-desk/configs/template.yaml
   addon_presets: !include addons/presets.yaml
   addon_stable_ids: !include addons/stable-ids.yaml
   addon_runtime_config: !include addons/runtime-config.yaml
