@@ -9,7 +9,7 @@ esphome:
       # Wakes up the desk and reports height
       - uart.write:
           id: handset_tx
-          data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]
+          data: [ 0x0 ]
   project:
     name: tj_horner.upsy_desky
     version: "4.0.4"
