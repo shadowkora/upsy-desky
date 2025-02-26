@@ -25,6 +25,7 @@ esp32:
   board: esp32dev
   framework:
     type: esp-idf
+
 substitutions:
   name: upsy-desky
   friendly_name: Upsy Desky
@@ -41,17 +42,20 @@ substitutions:
   button_bit4_pin: "19"
   button_m_pin: "18"
   default_height_units: cm
+
 packages:
-  standing_desk: github://shadowkora/esphome-standing-desk/configs/template.yaml
-  addon_presets: addons/presets.yaml
-  addon_stable_ids: addons/stable-ids.yaml
-  addon_runtime_config: addons/runtime-config.yaml
+  standing_desk: github://tjhorner/esphome-standing-desk/configs/template.yaml
+  addon_presets: !include addons/presets.yaml
+  addon_stable_ids: !include addons/stable-ids.yaml
+  addon_runtime_config: !include addons/runtime-config.yaml
+
 button:
   - platform: restart
-    name: Restart
+    name: "Restart"
+
 light:
   - platform: status_led
     id: upsy_desky_status_led
-    name: Status LED
+    name: "Status LED"
     pin: GPIO23
     restore_mode: RESTORE_DEFAULT_ON
