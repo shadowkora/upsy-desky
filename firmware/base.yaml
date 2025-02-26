@@ -5,10 +5,10 @@ esphome:
   name_add_mac_suffix: true
   min_version: "2024.6.0"
   on_boot:
-  then:
-    - uart.write:
-        id: handset_uart
-        data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]  # Send "Get Height" on boot
+    then:
+      - uart.write:
+          id: handset_uart
+          data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]  # Send "Get Height" on boot
   project:
     name: tj_horner.upsy_desky
     version: "4.0.4"
