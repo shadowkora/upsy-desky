@@ -5,19 +5,22 @@ esphome:
   name_add_mac_suffix: true
   min_version: "2024.6.0"
   on_boot:
-    then:
-      # Wakes up the desk and reports height
-      - uart.write:
-          id: handset_tx
-          data: [ 0x0 ]
+  then:
+    - uart.write:
+        id: handset_uart
+        data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]  # Send "Get Height" on boot
   project:
     name: tj_horner.upsy_desky
     version: "4.0.3"
 
 uart:
-  id: handset_tx
+  id: handset_uart
   tx_pin: 18
+  rx_pin: 17
   baud_rate: 9600
+  stop_bits: 1
+  parity: NONE
+
 
 esp32:
   board: esp32dev
