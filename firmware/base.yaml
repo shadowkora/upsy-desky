@@ -5,7 +5,7 @@ esphome:
   name_add_mac_suffix: true
   min_version: "2024.6.0"
   on_boot:
-    then:
+    - then:
       - uart.write:
           id: handset_uart
           data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]
