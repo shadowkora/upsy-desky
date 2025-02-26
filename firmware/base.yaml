@@ -40,7 +40,7 @@ substitutions:
   button_bit1_pin: "21"
   button_bit2_pin: "22"
   button_bit4_pin: "19"
-  button_m_pin: "18"
+  button_m_pin: "20"
   default_height_units: cm
 
 packages:
