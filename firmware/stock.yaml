@@ -11,7 +11,7 @@ text_sensor:
     internal: true
 
 logger:
-  level: INFO
+  level: DEBUG
 
 wifi:
   ap:
