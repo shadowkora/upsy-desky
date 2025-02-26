@@ -1,19 +1,22 @@
-# Essential ESPHome config options
+---
 esphome:
-  name: "${name}"
-  friendly_name: "${friendly_name}"
+  name: ${name}
+  friendly_name: ${friendly_name}
   name_add_mac_suffix: true
-  min_version: "2024.6.0"
+  min_version: 2024.6.0
   on_boot:
     then:
-      # Wakes up the desk and reports height
       - uart.write:
           id: handset_uart
-          data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]  # Send "Get Height" on boot
+          data:
+            - 165
+            - 0
+            - 0
+            - 1
+            - 1
   project:
     name: tj_horner.upsy_desky
-    version: "4.0.4"
-
+    version: 4.0.4
 uart:
   id: handset_uart
   tx_pin: 17
@@ -21,50 +24,37 @@ uart:
   baud_rate: 9600
   stop_bits: 1
   parity: NONE
-
-
 esp32:
   board: esp32dev
   framework:
     type: esp-idf
-
-# Configurable options
 substitutions:
-  name: "upsy-desky"
-  friendly_name: "Upsy Desky"
-  desk_height_name: "Desk Height"
-  target_desk_height_name: "Target Desk Height"
-
-  # Standing Desk Component Config
-  standing_desk_uart_rx_pin: "17"   # RJ45 Pin 2 = GPIO17 (D-RX)
-  standing_desk_up_pin: "21"          # RJ45 Pin 7 = GPIO21
-  standing_desk_down_pin: "22"        # RJ45 Pin 8 = GPIO22
-  standing_desk_key_pin: "16"         # RJ45 Pin 4 = GPIO16 (KEY-1)
+  name: upsy-desky
+  friendly_name: Upsy Desky
+  desk_height_name: Desk Height
+  target_desk_height_name: Target Desk Height
+  standing_desk_uart_rx_pin: "17"
+  standing_desk_up_pin: "21"
+  standing_desk_down_pin: "22"
+  standing_desk_key_pin: "16"
   standing_desk_min_height: "62"
   standing_desk_max_height: "128"
-
-  # Presets Addon Config
   button_bit1_pin: "21"
   button_bit2_pin: "22"
   button_bit4_pin: "19"
   button_m_pin: "18"
-
-  # Runtime Config Defaults
-  default_height_units: "cm" # Must be "in" or "cm"
-
+  default_height_units: cm
 packages:
   standing_desk: github://shadowkora/esphome-standing-desk/configs/template.yaml
-  addon_presets: !include addons/presets.yaml
-  addon_stable_ids: !include addons/stable-ids.yaml
-  addon_runtime_config: !include addons/runtime-config.yaml
-
+  addon_presets: addons/presets.yaml
+  addon_stable_ids: addons/stable-ids.yaml
+  addon_runtime_config: addons/runtime-config.yaml
 button:
   - platform: restart
-    name: "Restart"
-
+    name: Restart
 light:
   - platform: status_led
     id: upsy_desky_status_led
-    name: "Status LED"
+    name: Status LED
     pin: GPIO23
     restore_mode: RESTORE_DEFAULT_ON
