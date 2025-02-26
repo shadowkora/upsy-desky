@@ -1,22 +1,18 @@
 ---
 esphome:
-  name: ${name}
-  friendly_name: ${friendly_name}
+  name: "${name}"
+  friendly_name: "${friendly_name}"
   name_add_mac_suffix: true
-  min_version: 2024.6.0
+  min_version: "2024.6.0"
   on_boot:
     then:
       - uart.write:
           id: handset_uart
-          data:
-            - 165
-            - 0
-            - 0
-            - 1
-            - 1
+          data: [ 0xA5, 0x00, 0x00, 0x01, 0x01 ]
   project:
     name: tj_horner.upsy_desky
-    version: 4.0.4
+    version: "4.0.2"
+
 uart:
   id: handset_uart
   tx_pin: 17
