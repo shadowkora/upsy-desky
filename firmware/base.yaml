@@ -16,7 +16,7 @@ esphome:
 
 uart:
   id: handset_tx
-  tx_pin: 16
+  tx_pin: 18
   baud_rate: 9600
 
 esp32:
